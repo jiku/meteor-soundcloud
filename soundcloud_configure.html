@@ -1,0 +1,16 @@
+<template name="configureLoginServiceDialogForSoundCloud">
+  <p>
+    First, you'll need to get a SoundCloud Client ID. Follow these steps:
+  </p>
+  <ol>
+    <li>
+      Visit <a href="https://soundcloud.com/you/apps/new" target="blank">https://soundcloud.com/you/apps/new</a>
+    </li>
+    <li>
+      Set Homepage URL to: <span class="url">{{siteUrl}}</span>
+    </li>
+    <li>
+      Set Authorization callback URL to: <span class="url">{{siteUrl}}_oauth/soundCloud</span>
+    </li>
+  </ol>
+</template>
