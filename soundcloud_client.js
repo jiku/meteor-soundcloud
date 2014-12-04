@@ -35,6 +35,6 @@ SoundCloud.requestCredential = function (options, credentialRequestCompleteCallb
     loginUrl: loginUrl,
     credentialRequestCompleteCallback: credentialRequestCompleteCallback,
     credentialToken: credentialToken,
-    popupOptions: { width: 900, height: 450 }
+    popupOptions: { width: 550, height: 382 }
   });
 };
