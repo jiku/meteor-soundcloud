@@ -19,6 +19,8 @@ SoundCloud.requestCredential = function (options, credentialRequestCompleteCallb
 
   var credentialToken = Random.secret();
   var loginStyle = OAuth._loginStyle( 'soundCloud', config, options );
+  config.loginStyle = loginStyle;   // hack to make sure '?close' is not added to redirectUri; SC doesn't like it
+
   var loginUrl =
     'https://soundCloud.com/connect' +
     '?client_id=' + config.clientId +

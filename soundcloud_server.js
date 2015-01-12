@@ -11,10 +11,12 @@ SoundCloud.whitelistedFields = [
 
 OAuth.registerService( 'soundCloud', 2, null, function( query ){
   var accessToken = getAccessToken( query );
-  var identity = getIdentity( accessToken );
+  var identity    = getIdentity( accessToken );
 
   // call user update method here..
-  var serviceData = { accessToken: accessToken };
+  var serviceData = {
+    accessToken: OAuth.sealSecret( accessToken )
+  };
   var _serviceFields = _.pick( identity, SoundCloud.whitelistedFields );
   _.extend( serviceData, _serviceFields );
   var rv = {

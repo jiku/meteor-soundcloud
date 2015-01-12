@@ -1,7 +1,7 @@
 Package.describe({
   name: 'quietcreep:soundcloud',
   summary: 'SoundCloud for Meteor',
-  version: '1.0.0',
+  version: '1.0.1',
   git: 'https://github.com/quietcreep/meteor-soundcloud'
 });
 
