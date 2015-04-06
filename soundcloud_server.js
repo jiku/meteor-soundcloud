@@ -1,6 +1,6 @@
 
-// see: http://developers.soundCloud.com/docs/api/reference#me
-SoundCloud.whitelistedFields = [
+// see: http://developers.soundcloud.com/docs/api/reference#me
+Soundcloud.whitelistedFields = [
   'id', 'username', 'permalink', 'permalink_url', 'avatar_url', 'country',
   'full_name', 'city', 'description', 'website', 'discogs-name', 'myspace-name',
   'track_count', 'playlist_count', 'followers_count', 'followings_count',
@@ -9,7 +9,7 @@ SoundCloud.whitelistedFields = [
 
 
 
-OAuth.registerService( 'soundCloud', 2, null, function( query ){
+OAuth.registerService( 'soundcloud', 2, null, function( query ){
   var accessToken = getAccessToken( query );
   var identity    = getIdentity( accessToken );
 
@@ -17,7 +17,7 @@ OAuth.registerService( 'soundCloud', 2, null, function( query ){
   var serviceData = {
     accessToken: OAuth.sealSecret( accessToken )
   };
-  var _serviceFields = _.pick( identity, SoundCloud.whitelistedFields );
+  var _serviceFields = _.pick( identity, Soundcloud.whitelistedFields );
   _.extend( serviceData, _serviceFields );
   var rv = {
     serviceData: serviceData,
@@ -31,9 +31,9 @@ OAuth.registerService( 'soundCloud', 2, null, function( query ){
 
 
 function getAccessToken( query ){
-  var config = ServiceConfiguration.configurations.findOne({ service: 'soundCloud' });
+  var config = ServiceConfiguration.configurations.findOne({ service: 'soundcloud' });
   if (! config )
-    throw new ServiceConfiguration.ConfigError( "SoundCloud service not configured" );
+    throw new ServiceConfiguration.ConfigError( "Soundcloud service not configured" );
 
   var rv;
   try {
@@ -44,7 +44,7 @@ function getAccessToken( query ){
         grant_type: "authorization_code",
         client_id: config.clientId,
         client_secret: config.secret,
-        redirect_uri: Meteor.absoluteUrl("_oauth/soundCloud", { replaceLocalhost: true }),
+        redirect_uri: Meteor.absoluteUrl("_oauth/soundcloud", { replaceLocalhost: true }),
         state: query.state
       }
     });
@@ -69,7 +69,7 @@ function getIdentity( accessToken ) {
         oauth_token: accessToken
       }
     });
-    // console.info("fetching identity from: https://api.soundCloud.com/me", rv);
+    // console.info("fetching identity from: https://api.soundcloud.com/me", rv);
     return rv.data;
   } catch ( err ) {
     throw new Error( "Failed to fetch identity from SoundCloud. " + err.message );
@@ -78,6 +78,6 @@ function getIdentity( accessToken ) {
 
 
 
-SoundCloud.retrieveCredential = function( credentialToken, credentialSecret ) {
+Soundcloud.retrieveCredential = function( credentialToken, credentialSecret ) {
   return OAuth.retrieveCredential( credentialToken, credentialSecret );
 };

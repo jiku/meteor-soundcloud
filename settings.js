@@ -1,2 +1,2 @@
 
-SoundCloud = {};
+Soundcloud = {};

@@ -19,7 +19,7 @@ Package.onUse( function( api ){
 
   api.addFiles( 'settings.js', both );
 
-  api.export( "SoundCloud" );
+  api.export( "Soundcloud" );
 
   api.addFiles( 'soundcloud_configure.html', 'client' );
   api.addFiles( 'soundcloud_configure.js', 'client' );
