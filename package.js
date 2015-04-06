@@ -1,8 +1,7 @@
 Package.describe({
-  name: 'quietcreep:soundcloud',
-  summary: 'SoundCloud for Meteor',
+  name: 'jiku:soundcloud',
   version: '1.0.1',
-  git: 'https://github.com/quietcreep/meteor-soundcloud'
+  git: 'https://github.com/jiku/meteor-soundcloud'
 });
 
 
@@ -32,6 +31,6 @@ Package.onUse( function( api ){
 
 Package.onTest( function( api ){
   api.use('tinytest');
-  api.use('quietcreep:soundcloud');
-  api.addFiles('quietcreep:soundcloud-tests.js');
+  api.use('jiku:soundcloud');
+  api.addFiles('jiku:soundcloud-tests.js');
 });
